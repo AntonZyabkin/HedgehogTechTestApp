@@ -6,8 +6,9 @@
 //
 
 import UIKit
+protocol SearchViewControllerProtocol: UIViewController {}
 
-class ViewController: UIViewController {
+class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,3 +18,6 @@ class ViewController: UIViewController {
 
 }
 
+extension SearchViewController: SearchViewControllerProtocol {
+    
+}
