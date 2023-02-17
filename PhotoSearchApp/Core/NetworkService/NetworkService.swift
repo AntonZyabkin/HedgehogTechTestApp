@@ -10,7 +10,7 @@ import Moya
 
 
 protocol Networkable {
-    func request<T>(_ target: TargetType, complition: @escaping (Result<T, Error>) -> Void) where T: Decodable
+    func request<T>(request: String, complition: @escaping (Result<T, Error>) -> Void) where T: Decodable
 }
 
 final class NetworkService {
@@ -29,53 +29,30 @@ enum NetworkError: Error {
 }
 
 extension NetworkService: Networkable {
-    
-    func request<T>(_ target: TargetType, complition: @escaping (Result<T, Error>) -> Void) where T: Decodable {
-        let multiTarget = MultiTarget(target)
-        func complitionHandler(_ result: Result<T, Error>) {
+    func request<T>(request: String, complition: @escaping (Result<T, Error>) -> Void) where T: Decodable {
+
+        let baseURL = "https://serpapi.com"
+        let endpoint = "/search.json"
+        
+        var components = URLComponents(string: baseURL)!
+        components.path = endpoint
+        components.queryItems = [
+            URLQueryItem(name: "q", value: request),
+            URLQueryItem(name: "tbm", value: "isch"),
+            URLQueryItem(name: "engine", value: "google"),
+            URLQueryItem(name: "api_key", value: "ba2be5f1e1111f8e964159b3a6e261dce7245018a6940f9840dd40eb026ab9f4")
+        ]
+        
+        guard let url = components.url else { return }
+        URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
-                complition(result)
-            }
-        }
-        DispatchQueue.global(qos: .userInitiated).async {  [weak self] in
-            guard let self = self else {
-                return
-            }
-            self.provider.request(multiTarget) { result in
-                switch result {
-                case .failure(let error):
+                if let error = error {
                     complition(.failure(error))
-                case .success(let response):
-                    guard let urlResponse = response.response else {
-                        let error = NetworkError.responseError
-                        complitionHandler(.failure(error))
-                        return
-                    }
-                    switch urlResponse.statusCode {
-                    case 200...210:
-                        self.decoderService.decode(response.data, complition: complition)
-                    case 300...399:
-                        print("Status code \(urlResponse.statusCode)")
-                        //TODO: закончить дерево решений по всем кодам
-                        //do something
-                        break
-                    case 400...499:
-                        print("Status code \(urlResponse.statusCode)")
-                        print(String(data: response.data, encoding: .utf8) ?? "String decode error")
-                        self.decoderService.decode(response.data, complition: complition)
-                        //do something
-                        break
-                    case 500...599:
-                        print("Status code \(urlResponse.statusCode)")
-                        self.decoderService.decode(response.data, complition: complition)
-                        break
-                    default:
-                        let error = NetworkError.unknownError
-                        complitionHandler(.failure(error))
-                        return
-                    }
+                    return
                 }
+                guard let data = data else { return }
+                self.decoderService.decode(data, complition: complition)
             }
-        }
+        }.resume()
     }
 }

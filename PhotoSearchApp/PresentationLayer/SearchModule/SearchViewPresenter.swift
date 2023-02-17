@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 protocol SearchViewPresenterProtocol {
     func test()
 }
@@ -25,5 +24,13 @@ final class SearchViewPresenter {
 extension SearchViewPresenter: SearchViewPresenterProtocol {
     func test() {
         print("success DI")
+        serpAPIService.fetchPhotos(request: "apple") { result in
+            switch result {
+            case .success(let responce):
+                print(responce.imageResults)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

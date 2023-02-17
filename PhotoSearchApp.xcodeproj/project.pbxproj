@@ -20,6 +20,7 @@
 		E832A30A299F97F500C99F05 /* SearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832A309299F97F500C99F05 /* SearchViewPresenter.swift */; };
 		E832A30D299F98B700C99F05 /* SerpAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832A30C299F98B700C99F05 /* SerpAPIService.swift */; };
 		E832A30F299F9A9400C99F05 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832A30E299F9A9400C99F05 /* ModuleBuilder.swift */; };
+		E832A318299FA34D00C99F05 /* SerpPhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832A317299FA34D00C99F05 /* SerpPhotoResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		E832A309299F97F500C99F05 /* SearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewPresenter.swift; sourceTree = "<group>"; };
 		E832A30C299F98B700C99F05 /* SerpAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerpAPIService.swift; sourceTree = "<group>"; };
 		E832A30E299F9A9400C99F05 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		E832A317299FA34D00C99F05 /* SerpPhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerpPhotoResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				E832A300299F92C500C99F05 /* NetworkService */,
+				E832A30B299F987100C99F05 /* APIService */,
 				E832A2FE299F92AB00C99F05 /* DecoderService.swift */,
 			);
 			path = Core;
@@ -142,8 +145,8 @@
 		E832A300299F92C500C99F05 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
-				E832A30B299F987100C99F05 /* APIService */,
 				E832A301299F942900C99F05 /* NetworkService.swift */,
+				E832A314299FA31500C99F05 /* Responses */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -171,6 +174,14 @@
 				E832A30C299F98B700C99F05 /* SerpAPIService.swift */,
 			);
 			path = APIService;
+			sourceTree = "<group>";
+		};
+		E832A314299FA31500C99F05 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				E832A317299FA34D00C99F05 /* SerpPhotoResponse.swift */,
+			);
+			path = Responses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +307,7 @@
 				E832A30F299F9A9400C99F05 /* ModuleBuilder.swift in Sources */,
 				E832A2E7299F907F00C99F05 /* AppDelegate.swift in Sources */,
 				E832A2FF299F92AB00C99F05 /* DecoderService.swift in Sources */,
+				E832A318299FA34D00C99F05 /* SerpPhotoResponse.swift in Sources */,
 				E832A2E9299F907F00C99F05 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

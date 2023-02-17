@@ -7,7 +7,7 @@
 
 import Foundation
 protocol SerpAPIServiceProtocol {
-    
+    func fetchPhotos(request: String, complition: @escaping (Result<SerpPhotoResponse, Error>) -> Void)
 }
 final class SerpAPIService{
     private let networkService: Networkable
@@ -18,5 +18,7 @@ final class SerpAPIService{
 }
 
 extension SerpAPIService: SerpAPIServiceProtocol {
-    
+    func fetchPhotos(request: String, complition: @escaping (Result<SerpPhotoResponse, Error>) -> Void) {
+        networkService.request(request: "apple", complition: complition)
+    }
 }

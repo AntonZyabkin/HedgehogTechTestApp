@@ -8,7 +8,6 @@
 import Foundation
 protocol DecoderServicable{
     func decode<T: Decodable>(_ data: Data, complition: @escaping (Result<T, Error>) -> Void)
-    func encode<T: Encodable>(_ data: T, complition: @escaping (Result<Data, Error>) -> Void)
 }
 
 final class DecoderService{
@@ -18,17 +17,9 @@ final class DecoderService{
 
 extension DecoderService: DecoderServicable {
     func decode<T: Decodable>(_ data: Data, complition: @escaping (Result<T, Error>) -> Void) {
+        print(String(data: data, encoding: .utf8))
         do {
             let result = try self.jsonDecoder.decode(T.self, from: data)
-            complition(.success(result))
-        } catch  {
-            complition(.failure(error))
-        }
-    }
-    
-    func encode<T: Encodable>(_ data: T, complition: @escaping (Result<Data, Error>) -> Void) {
-        do {
-            let result = try self.jsonEncoder.encode(data)
             complition(.success(result))
         } catch  {
             complition(.failure(error))
