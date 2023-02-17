@@ -7,15 +7,23 @@
 
 import Foundation
 
-protocol SearchViewPresenterProtocol {}
+protocol SearchViewPresenterProtocol {
+    func test()
+}
 
 final class SearchViewPresenter {
     weak var view: SearchViewControllerProtocol?
     private let serpAPIService: SerpAPIServiceProtocol
-    
-    init(serpAPIService: SerpAPIServiceProtocol) {
+    private let moduleBuilder: Builder
+
+    init(serpAPIService: SerpAPIServiceProtocol, moduleBuilder: Builder) {
         self.serpAPIService = serpAPIService
+        self.moduleBuilder = moduleBuilder
     }
 }
 
-extension SearchViewPresenter: SearchViewPresenterProtocol {}
+extension SearchViewPresenter: SearchViewPresenterProtocol {
+    func test() {
+        print("success DI")
+    }
+}

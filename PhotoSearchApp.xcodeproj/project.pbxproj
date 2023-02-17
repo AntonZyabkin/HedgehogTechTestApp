@@ -19,6 +19,7 @@
 		E832A304299F97B300C99F05 /* WebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832A303299F97B300C99F05 /* WebPageViewController.swift */; };
 		E832A30A299F97F500C99F05 /* SearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832A309299F97F500C99F05 /* SearchViewPresenter.swift */; };
 		E832A30D299F98B700C99F05 /* SerpAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832A30C299F98B700C99F05 /* SerpAPIService.swift */; };
+		E832A30F299F9A9400C99F05 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832A30E299F9A9400C99F05 /* ModuleBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E832A303299F97B300C99F05 /* WebPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPageViewController.swift; sourceTree = "<group>"; };
 		E832A309299F97F500C99F05 /* SearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewPresenter.swift; sourceTree = "<group>"; };
 		E832A30C299F98B700C99F05 /* SerpAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerpAPIService.swift; sourceTree = "<group>"; };
+		E832A30E299F9A9400C99F05 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				E832A2EC299F907F00C99F05 /* Main.storyboard */,
+				E832A30E299F9A9400C99F05 /* ModuleBuilder.swift */,
 				E832A308299F97D500C99F05 /* SearchModule */,
 				E832A307299F97C700C99F05 /* WebPageModule */,
 			);
@@ -290,6 +293,7 @@
 				E832A2EB299F907F00C99F05 /* SearchViewController.swift in Sources */,
 				E832A30A299F97F500C99F05 /* SearchViewPresenter.swift in Sources */,
 				E832A30D299F98B700C99F05 /* SerpAPIService.swift in Sources */,
+				E832A30F299F9A9400C99F05 /* ModuleBuilder.swift in Sources */,
 				E832A2E7299F907F00C99F05 /* AppDelegate.swift in Sources */,
 				E832A2FF299F92AB00C99F05 /* DecoderService.swift in Sources */,
 				E832A2E9299F907F00C99F05 /* SceneDelegate.swift in Sources */,

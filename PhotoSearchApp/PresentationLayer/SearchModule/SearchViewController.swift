@@ -9,13 +9,11 @@ import UIKit
 protocol SearchViewControllerProtocol: UIViewController {}
 
 class SearchViewController: UIViewController {
-
+    var presenter: SearchViewPresenterProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        presenter?.test()
     }
-
-
 }
 
 extension SearchViewController: SearchViewControllerProtocol {
