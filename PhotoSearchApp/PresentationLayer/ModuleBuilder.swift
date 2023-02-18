@@ -7,7 +7,8 @@
 
 import Foundation
 protocol Builder {
-    func buildSearchViewPresenter(viewController: SearchViewController) -> Void
+    func configureSearchViewController(viewController: SearchViewController) -> Void
+    func configureFullScreenPhotoViewController(viewController: FullScreenPhotoViewController) -> Void
 }
 
 final class ModuleBuilder {
@@ -23,8 +24,13 @@ final class ModuleBuilder {
 }
 
 extension ModuleBuilder: Builder {
-    func buildSearchViewPresenter(viewController: SearchViewController) {
+    func configureSearchViewController(viewController: SearchViewController) -> Void {
         let presenter = SearchViewPresenter(serpAPIService: serpAPIService, moduleBuilder: self)
+        presenter.view = viewController
+        viewController.presenter = presenter
+    }
+    func configureFullScreenPhotoViewController(viewController: FullScreenPhotoViewController) -> Void {
+        let presenter = FullScreenPhotoViewPresenter(moduleBuilder: self)
         presenter.view = viewController
         viewController.presenter = presenter
     }

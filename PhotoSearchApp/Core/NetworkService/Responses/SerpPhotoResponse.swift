@@ -20,17 +20,3 @@ struct ImagesResult: Codable {
     let link: String
     let original: String
 }
-struct Post: Codable {
-    let userId: Int
-    let postId: Int
-    let title: String
-    let body: String
-    
-    
-    enum CodingKeys: String, CodingKey {
-        case userId = "userId"
-        case postId = "id"
-        case title = "title"
-        case body = "body"
-    }
-}
