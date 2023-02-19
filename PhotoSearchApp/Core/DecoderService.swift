@@ -12,7 +12,6 @@ protocol DecoderServicable{
 
 final class DecoderService{
     private let jsonDecoder = JSONDecoder()
-    private let jsonEncoder = JSONEncoder()
 }
 
 extension DecoderService: DecoderServicable {

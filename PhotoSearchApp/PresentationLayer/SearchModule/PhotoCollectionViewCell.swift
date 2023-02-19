@@ -17,17 +17,9 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-    private lazy var activityIndicator: UIActivityIndicatorView = {
-        let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.startAnimating()
-        activityIndicator.hidesWhenStopped = true
-        return activityIndicator
-    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
         imageView.frame.size = frame.size
-        backgroundColor = .blue
         layer.masksToBounds = true
         contentView.addSubview(imageView)
     }
@@ -41,7 +33,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(url: String) {
-        activityIndicator.startAnimating()
-        imageView.downloadImage(url, activityIndicator: activityIndicator)
+        imageView.downloadImage(url, activityIndicator: nil)
     }
 }

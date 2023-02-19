@@ -32,10 +32,8 @@ extension SearchViewPresenter: SearchViewPresenterProtocol {
     }
     
     func startLoadData(request: String) {
-        print("success DI: \(request)")
         serpAPIService.fetchPhotos(request: request) { [weak self] result in
             guard let self = self else { return }
-            print(result)
             DispatchQueue.main.async {
                 switch result {
                 case .success(let responce):

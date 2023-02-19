@@ -39,6 +39,7 @@ class SearchViewController: UIViewController {
         alert.addAction(alertAction)
         return alert
     }()
+    private lazy var activityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,9 @@ class SearchViewController: UIViewController {
     }
     private func configViewsConstraints() {
         view.addSubview(photoCollectionView)
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.frame = view.frame
+        activityIndicatorView.hidesWhenStopped = true
         NSLayoutConstraint.activate([
             photoCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
             photoCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
@@ -75,8 +79,10 @@ extension SearchViewController: SearchViewControllerProtocol {
         switch result {
         case .success(_):
             reloadData()
+            activityIndicatorView.stopAnimating()
         case .failure(let failure):
             showAlert(with: failure.localizedDescription)
+            activityIndicatorView.stopAnimating()
         }
     }
 }
@@ -84,7 +90,7 @@ extension SearchViewController: SearchViewControllerProtocol {
 extension SearchViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(searchBar.text! + "SUCCESS")
+        activityIndicatorView.startAnimating()
         guard let text = searchBar.text else { return }
         presenter?.startLoadData(request: text)
     }
@@ -116,7 +122,10 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         else { return }
 
         presenter.photoDidTaped(viewController: fullScreenViewController, indexPath)
-        fullScreenViewController.imageView?.downloadImage(presenter.dataForCellBy(indexPath), activityIndicator: nil)
+        fullScreenViewController.imageView?.downloadImage(
+            presenter.dataForCellBy(indexPath),
+            activityIndicator: activityIndicatorView
+        )
         fullScreenViewController.transitioningDelegate = self
         fullScreenViewController.modalPresentationStyle = .custom
         present(fullScreenViewController, animated: true)

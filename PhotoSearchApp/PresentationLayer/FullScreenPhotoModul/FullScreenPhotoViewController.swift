@@ -8,23 +8,28 @@
 import UIKit
 protocol FullScreenPhotoViewControllerProtocol: UIViewController {
     var imageView: UIImageView? { get set }
+    var activityIndicatorView: UIActivityIndicatorView! { get set }
 }
 
 class FullScreenPhotoViewController: UIViewController {
     
     var presenter: FullScreenPhotoViewPresenterProtocol?
     
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var imageView: UIImageView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicatorView.startAnimating()
         view.backgroundColor = .black
         presenter?.setupImage()
     }
     @IBAction func back(_ sender: UIButton) {
-        print("go back")
         presentingViewController?.dismiss(animated: true)
     }
     @IBAction func previousButtonDidTap(_ sender: UIButton) {
+        imageView?.image = nil
+        activityIndicatorView.startAnimating()
         presenter?.previousButtonDidTap()
     }
     @IBAction func siteButtonDidTap(_ sender: Any) {
@@ -36,10 +41,10 @@ class FullScreenPhotoViewController: UIViewController {
         present(webPageViewController, animated: true)
     }
     @IBAction func nextButtonDidTap(_ sender: UIButton) {
+        imageView?.image = nil
+        activityIndicatorView.startAnimating()
         presenter?.nextButtonDidTap()
     }
 }
 
-extension FullScreenPhotoViewController: FullScreenPhotoViewControllerProtocol {
-
-}
+extension FullScreenPhotoViewController: FullScreenPhotoViewControllerProtocol {}

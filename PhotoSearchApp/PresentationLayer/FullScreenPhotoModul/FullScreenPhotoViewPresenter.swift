@@ -30,7 +30,7 @@ final class FullScreenPhotoViewPresenter {
 
 extension FullScreenPhotoViewPresenter: FullScreenPhotoViewPresenterProtocol {
     func setupImage() {
-        view?.imageView?.downloadImage(imageArray[currentCellNumber].original, activityIndicator: nil)
+        view?.imageView?.downloadImage(imageArray[currentCellNumber].original, activityIndicator: view?.activityIndicatorView)
     }
     func previousButtonDidTap() {
         guard currentCellNumber > 0 else { return }
@@ -43,7 +43,7 @@ extension FullScreenPhotoViewPresenter: FullScreenPhotoViewPresenterProtocol {
         setupImage()
     }
     func urlString() -> String {
-        imageArray[currentCellNumber].original
+        imageArray[currentCellNumber].link
     }
     func siteButtonDidTap(viewController: WebPageViewController) {
         moduleBuilder.buildWebPageViewController(presenter: self, viewController: viewController)

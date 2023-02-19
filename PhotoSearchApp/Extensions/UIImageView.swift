@@ -12,14 +12,15 @@ var imageCache = NSCache<NSString, UIImage>()
 
 extension UIImageView {
     func downloadImage(_ urlString: String, activityIndicator: UIActivityIndicatorView?) {
-        
-        if let cachedImage = imageCache.object(forKey: urlString as NSString) {
-            self.image = cachedImage
-            activityIndicator?.stopAnimating()
-            return
-        }
-        
         DispatchQueue.global().async {
+            if let cachedImage = imageCache.object(forKey: urlString as NSString) {
+                DispatchQueue.main.async {
+                    self.image = cachedImage
+                    activityIndicator?.stopAnimating()
+                }
+                return
+            }
+            
             guard let url = URL(string: urlString),
                   let data = try? Data(contentsOf: url),
                   let image = UIImage(data: data)

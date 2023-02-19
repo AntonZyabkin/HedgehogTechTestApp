@@ -54,7 +54,6 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                 photoView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
             }, completion: { _ in
                 transitionContext.completeTransition(true)
-                print("sueusue")
             })
     }
 }
