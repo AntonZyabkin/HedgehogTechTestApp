@@ -37,7 +37,7 @@ extension NetworkService: Networkable {
             URLQueryItem(name: "q", value: request),
             URLQueryItem(name: "tbm", value: "isch"),
             URLQueryItem(name: "engine", value: "google"),
-            URLQueryItem(name: "api_key", value: "ba2be5f1e1111f8e964159b3a6e261dce7245018a6940f9840dd40eb026ab9f4")
+            URLQueryItem(name: "api_key", value: "0a35bb0f097de4b756d939e31557b83e9fcbe1d6d340cd482146c1e6e1651923")
         ]
         
         guard let url = components.url else { return }

@@ -8,7 +8,7 @@
 import UIKit
 
 class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    let duration =  0.2
+    let duration =  0.5
     var presenting =  true
     var originFrame =  CGRect .zero
     

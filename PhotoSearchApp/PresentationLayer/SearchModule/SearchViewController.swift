@@ -88,7 +88,7 @@ extension SearchViewController: SearchViewControllerProtocol {
 }
 
 extension SearchViewController: UISearchBarDelegate {
-
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         activityIndicatorView.startAnimating()
         guard let text = searchBar.text else { return }
@@ -106,8 +106,8 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
             let cell = photoCollectionView.dequeueReusableCell(
-            withReuseIdentifier: PhotoCollectionViewCell.identifier,
-            for: indexPath) as? PhotoCollectionViewCell,
+                withReuseIdentifier: PhotoCollectionViewCell.identifier,
+                for: indexPath) as? PhotoCollectionViewCell,
             let presenter = presenter
         else {
             return UICollectionViewCell()
@@ -120,7 +120,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
             let fullScreenViewController = storyboard?.instantiateViewController(withIdentifier: "Full") as? FullScreenPhotoViewController,
             let presenter = presenter
         else { return }
-
+        
         presenter.photoDidTaped(viewController: fullScreenViewController, indexPath)
         fullScreenViewController.imageView?.downloadImage(
             presenter.dataForCellBy(indexPath),
@@ -139,15 +139,33 @@ extension SearchViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         guard
-          let selectedIndexPathCell = photoCollectionView.indexPathsForSelectedItems?.first,
-          let selectedCell = photoCollectionView.cellForItem(at: selectedIndexPathCell)
-            as? PhotoCollectionViewCell,
-          let selectedCellSuperview = selectedCell.superview
-          else {
+            let selectedIndexPathCell = photoCollectionView.indexPathsForSelectedItems?.first,
+            let selectedCell = photoCollectionView.cellForItem(at: selectedIndexPathCell)
+                as? PhotoCollectionViewCell,
+            let selectedCellSuperview = selectedCell.superview,
+            let size = selectedCell.imageView.image?.size
+        else {
+            print("size errore")
             return nil
         }
-
-        transition.originFrame = selectedCellSuperview.convert(selectedCell.frame, to: nil)
+        let frame = selectedCellSuperview.convert(selectedCell.frame, to: nil)
+        transition.originFrame = frame
+        let proroftions = view.frame.size.height / view.frame.size.width
+        if size.height > size.width {
+            transition.originFrame = CGRect(
+                x: frame.minX,
+                y: frame.midY - proroftions * frame.size.height / 2,
+                width: frame.size.width,
+                height: proroftions * frame.size.height
+            )
+        } else {
+            transition.originFrame = CGRect(
+                x: frame.midX - frame.size.width * size.width / size.height / 2,
+                y: frame.midY - proroftions * frame.size.width * size.width / size.height / 2,
+                width: frame.size.width * size.width / size.height,
+                height: proroftions * frame.size.width * size.width / size.height
+            )
+        }
         transition.presenting = true
         return transition
     }
