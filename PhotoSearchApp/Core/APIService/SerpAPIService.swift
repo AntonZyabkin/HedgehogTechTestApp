@@ -19,6 +19,6 @@ final class SerpAPIService{
 
 extension SerpAPIService: SerpAPIServiceProtocol {
     func fetchPhotos(request: String, complition: @escaping (Result<SerpPhotoResponse, Error>) -> Void) {
-        networkService.request(request: "apple", complition: complition)
+        networkService.request(request: request, complition: complition)
     }
 }

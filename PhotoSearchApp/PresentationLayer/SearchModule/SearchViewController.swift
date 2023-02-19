@@ -85,8 +85,8 @@ extension SearchViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(searchBar.text! + "SUCCESS")
-        guard let test = searchBar.text else { return }
-        presenter?.startLoadData(request: test)
+        guard let text = searchBar.text else { return }
+        presenter?.startLoadData(request: text)
     }
 }
 
@@ -113,21 +113,16 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
 //            imege = UIImage(named: "Image 1")!
 //        }
 //        cell.imageView.image = imege
-        print(presenter.dataForCellBy(indexPath))
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let fullScreenViewController = storyboard?.instantiateViewController(withIdentifier: "Full") as? FullScreenPhotoViewController  else {
-            return
-        }
-        var image = UIImage()
-        if indexPath.row % 2 == 1 {
-            image = UIImage(named: "Image")!
-        } else {
-            image = UIImage(named: "Image 1")!
-        }
-        presenter?.photoDidTaped(viewController: fullScreenViewController)
-        fullScreenViewController.presenter?.image = image
+        guard
+            let fullScreenViewController = storyboard?.instantiateViewController(withIdentifier: "Full") as? FullScreenPhotoViewController,
+            let presenter = presenter
+        else { return }
+
+        presenter.photoDidTaped(viewController: fullScreenViewController, indexPath)
+        fullScreenViewController.imageView?.downloadImage(presenter.dataForCellBy(indexPath), activityIndicator: nil)
         fullScreenViewController.transitioningDelegate = self
         fullScreenViewController.modalPresentationStyle = .custom
         present(fullScreenViewController, animated: true)
@@ -155,3 +150,4 @@ extension SearchViewController: UIViewControllerTransitioningDelegate {
         return transition
     }
 }
+

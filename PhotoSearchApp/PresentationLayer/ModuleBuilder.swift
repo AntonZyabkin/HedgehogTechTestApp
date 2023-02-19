@@ -8,7 +8,8 @@
 import Foundation
 protocol Builder {
     func configureSearchViewController(viewController: SearchViewController) -> Void
-    func configureFullScreenPhotoViewController(viewController: FullScreenPhotoViewController) -> Void
+    func configureFullScreenPhotoViewController(viewController: FullScreenPhotoViewController, data: [ImagesResult], _ indexPath: IndexPath) -> Void
+    func buildWebPageViewController(presenter: FullScreenPhotoViewPresenter) -> WebPageViewController
 }
 
 final class ModuleBuilder {
@@ -29,9 +30,16 @@ extension ModuleBuilder: Builder {
         presenter.view = viewController
         viewController.presenter = presenter
     }
-    func configureFullScreenPhotoViewController(viewController: FullScreenPhotoViewController) -> Void {
-        let presenter = FullScreenPhotoViewPresenter(moduleBuilder: self)
+    func configureFullScreenPhotoViewController(viewController: FullScreenPhotoViewController, data: [ImagesResult], _ indexPath: IndexPath) -> Void {
+        let presenter = FullScreenPhotoViewPresenter(moduleBuilder: self, imageArray: data, currentCellNumber: indexPath.row)
         presenter.view = viewController
         viewController.presenter = presenter
+    }
+    func buildWebPageViewController(presenter: FullScreenPhotoViewPresenter) -> WebPageViewController {
+        let viewController = WebPageViewController()
+        viewController.urlString = presenter.urlString()
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .partialCurl
+        return viewController
     }
 }

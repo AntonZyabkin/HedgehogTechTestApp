@@ -17,7 +17,6 @@ final class DecoderService{
 
 extension DecoderService: DecoderServicable {
     func decode<T: Decodable>(_ data: Data, complition: @escaping (Result<T, Error>) -> Void) {
-        print(String(data: data, encoding: .utf8))
         do {
             let result = try self.jsonDecoder.decode(T.self, from: data)
             complition(.success(result))

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 protocol SearchViewPresenterProtocol {
-    func photoDidTaped(viewController: FullScreenPhotoViewController)
+    func photoDidTaped(viewController: FullScreenPhotoViewController, _ indexPath: IndexPath)
     func numberOfCells() -> Int
     func startLoadData(request: String)
     func dataForCellBy(_ indexPath: IndexPath) -> String
@@ -51,7 +51,7 @@ extension SearchViewPresenter: SearchViewPresenterProtocol {
         imageArray[indexPath.row].thumbnail
     }
     
-    func photoDidTaped(viewController: FullScreenPhotoViewController) {
-        moduleBuilder.configureFullScreenPhotoViewController(viewController: viewController)
+    func photoDidTaped(viewController: FullScreenPhotoViewController, _ indexPath: IndexPath) {
+        moduleBuilder.configureFullScreenPhotoViewController(viewController: viewController, data: imageArray, indexPath)
     }
 }

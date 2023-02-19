@@ -54,6 +54,9 @@
                                         <color key="tintColor" red="1" green="0.40420187169999999" blue="0.33657927370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.backward.fill" catalog="system" title=""/>
+                                        <connections>
+                                            <action selector="previousButtonDidTap:" destination="8Ut-m7-Elc" eventType="touchUpInside" id="g2U-OH-Dia"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFl-Qy-jYP">
                                         <rect key="frame" x="131" y="0.0" width="131" height="68"/>
@@ -61,6 +64,9 @@
                                         <color key="tintColor" red="1" green="0.40420187169999999" blue="0.33657927370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="go to site"/>
+                                        <connections>
+                                            <action selector="siteButtonDidTap:" destination="8Ut-m7-Elc" eventType="touchUpInside" id="nEw-Vy-idM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4R-K7-wnn">
                                         <rect key="frame" x="262" y="0.0" width="131" height="68"/>
@@ -68,6 +74,9 @@
                                         <color key="tintColor" red="1" green="0.40420187169999999" blue="0.33657927370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.forward.fill" catalog="system" title=""/>
+                                        <connections>
+                                            <action selector="nextButtonDidTap:" destination="8Ut-m7-Elc" eventType="touchUpInside" id="kWO-G1-574"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

@@ -24,6 +24,16 @@ class FullScreenPhotoViewController: UIViewController {
         print("go back")
         presentingViewController?.dismiss(animated: true)
     }
+    @IBAction func previousButtonDidTap(_ sender: UIButton) {
+        presenter?.previousButtonDidTap()
+    }
+    @IBAction func siteButtonDidTap(_ sender: Any) {
+        guard let presenter = presenter else { return }
+        present(presenter.siteButtonDidTap(), animated: true)
+    }
+    @IBAction func nextButtonDidTap(_ sender: UIButton) {
+        presenter?.nextButtonDidTap()
+    }
 }
 
 extension FullScreenPhotoViewController: FullScreenPhotoViewControllerProtocol {
