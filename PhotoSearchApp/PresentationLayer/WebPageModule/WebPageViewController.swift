@@ -10,22 +10,23 @@ import UIKit
 import WebKit
 
 final class WebPageViewController: UIViewController {
-    private lazy var webView = WKWebView()
+//    private lazy var webView = WKWebView()
     
     var urlString = ""
     
+    @IBOutlet weak var webView: WKWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(webView)
-        openWebPage(from: urlString)
-        webView.frame = view.bounds
+//        view.addSubview(webView)
+//        openWebPage(from: urlString)
+//        webView.frame = view.bounds
     }
     
     func openWebPage(from url: String) {
         DispatchQueue.main.async {
             guard let url = URL(string: url) else { return }
             let request = URLRequest(url: url)
-            self.webView.load(request)
+//            self.webView.load(request)
         }
     }
 }

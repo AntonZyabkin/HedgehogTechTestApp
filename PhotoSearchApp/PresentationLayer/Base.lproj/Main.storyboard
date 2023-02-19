@@ -106,6 +106,40 @@
             </objects>
             <point key="canvasLocation" x="2012.9770992366412" y="-2.1126760563380285"/>
         </scene>
+        <!--Web Page View Controller-->
+        <scene sceneID="njt-u7-dhD">
+            <objects>
+                <viewController storyboardIdentifier="web" id="xSu-qp-MoH" customClass="WebPageViewController" customModule="PhotoSearchApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wRb-zp-rC3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mr6-i5-GxQ">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="861"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rKe-FU-72n"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mr6-i5-GxQ" firstAttribute="width" secondItem="wRb-zp-rC3" secondAttribute="width" id="gkc-mx-r9m"/>
+                            <constraint firstItem="rKe-FU-72n" firstAttribute="top" secondItem="Mr6-i5-GxQ" secondAttribute="top" constant="59" id="lMi-dw-zs3"/>
+                            <constraint firstItem="Mr6-i5-GxQ" firstAttribute="height" secondItem="wRb-zp-rC3" secondAttribute="height" multiplier="1.01056" id="t7W-jb-rVq"/>
+                            <constraint firstItem="Mr6-i5-GxQ" firstAttribute="leading" secondItem="rKe-FU-72n" secondAttribute="leading" id="x4p-6z-oGg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Mr6-i5-GxQ" id="zl9-ox-f1D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="na5-y1-EI1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3020.6106870229005" y="-2.1126760563380285"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="FbD-ut-n1f">
             <objects>

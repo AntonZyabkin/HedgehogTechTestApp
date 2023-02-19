@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import Moya
-
 
 protocol Networkable {
     func request<T>(request: String, complition: @escaping (Result<T, Error>) -> Void) where T: Decodable
@@ -15,7 +13,6 @@ protocol Networkable {
 
 final class NetworkService {
     private let decoderService: DecoderServicable
-    private let provider = MoyaProvider<MultiTarget>()
     init(decoderService: DecoderServicable) {
         self.decoderService = decoderService
     }

@@ -90,6 +90,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
+//MARK: - extension UICollectionViewDataSource, UICollectionViewDelegate
 extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let presenter = presenter else { return 0 }
@@ -106,13 +107,6 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
             return UICollectionViewCell()
         }
         cell.configureCell(url: presenter.dataForCellBy(indexPath))
-//        var imege = UIImage()
-//        if indexPath.row % 2 == 1 {
-//            imege = UIImage(named: "Image")!
-//        } else {
-//            imege = UIImage(named: "Image 1")!
-//        }
-//        cell.imageView.image = imege
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -129,6 +123,9 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     }
 }
 
+
+
+//MARK: - extension UIViewControllerTransitioningDelegate
 extension SearchViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         

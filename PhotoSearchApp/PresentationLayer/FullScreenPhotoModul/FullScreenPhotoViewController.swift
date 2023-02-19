@@ -28,8 +28,12 @@ class FullScreenPhotoViewController: UIViewController {
         presenter?.previousButtonDidTap()
     }
     @IBAction func siteButtonDidTap(_ sender: Any) {
-        guard let presenter = presenter else { return }
-        present(presenter.siteButtonDidTap(), animated: true)
+        guard
+            let webPageViewController = storyboard?.instantiateViewController(withIdentifier: "web") as? WebPageViewController,
+            let presenter = presenter
+        else { return }
+        presenter.siteButtonDidTap(viewController: webPageViewController)
+        present(webPageViewController, animated: true)
     }
     @IBAction func nextButtonDidTap(_ sender: UIButton) {
         presenter?.nextButtonDidTap()

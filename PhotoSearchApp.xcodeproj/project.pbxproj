@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C306F489ECCA99776F776E77 /* Pods_PhotoSearchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A80626AF8552B73192C6FB7E /* Pods_PhotoSearchApp.framework */; };
 		E832A2E7299F907F00C99F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832A2E6299F907F00C99F05 /* AppDelegate.swift */; };
 		E832A2E9299F907F00C99F05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832A2E8299F907F00C99F05 /* SceneDelegate.swift */; };
 		E832A2EB299F907F00C99F05 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832A2EA299F907F00C99F05 /* SearchViewController.swift */; };
@@ -29,9 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5646C39AEC01A992A4D1A17C /* Pods-PhotoSearchApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoSearchApp.debug.xcconfig"; path = "Target Support Files/Pods-PhotoSearchApp/Pods-PhotoSearchApp.debug.xcconfig"; sourceTree = "<group>"; };
-		A5EDF36606A087D9571E2FB3 /* Pods-PhotoSearchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoSearchApp.release.xcconfig"; path = "Target Support Files/Pods-PhotoSearchApp/Pods-PhotoSearchApp.release.xcconfig"; sourceTree = "<group>"; };
-		A80626AF8552B73192C6FB7E /* Pods_PhotoSearchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoSearchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E832A2E3299F907F00C99F05 /* PhotoSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E832A2E6299F907F00C99F05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E832A2E8299F907F00C99F05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,37 +55,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C306F489ECCA99776F776E77 /* Pods_PhotoSearchApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		494F6CD182696D8AB2C15C96 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5646C39AEC01A992A4D1A17C /* Pods-PhotoSearchApp.debug.xcconfig */,
-				A5EDF36606A087D9571E2FB3 /* Pods-PhotoSearchApp.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		DA275365EEC3C4D4D66888AB /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A80626AF8552B73192C6FB7E /* Pods_PhotoSearchApp.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		E832A2DA299F907F00C99F05 = {
 			isa = PBXGroup;
 			children = (
 				E832A2E5299F907F00C99F05 /* PhotoSearchApp */,
 				E832A2E4299F907F00C99F05 /* Products */,
-				494F6CD182696D8AB2C15C96 /* Pods */,
-				DA275365EEC3C4D4D66888AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,11 +198,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E832A2F7299F908000C99F05 /* Build configuration list for PBXNativeTarget "PhotoSearchApp" */;
 			buildPhases = (
-				FBD28FBA1EAC4050576DA4AE /* [CP] Check Pods Manifest.lock */,
 				E832A2DF299F907F00C99F05 /* Sources */,
 				E832A2E0299F907F00C99F05 /* Frameworks */,
 				E832A2E1299F907F00C99F05 /* Resources */,
-				766CAB92F5C814070AD23480 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -282,48 +256,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		766CAB92F5C814070AD23480 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PhotoSearchApp/Pods-PhotoSearchApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PhotoSearchApp/Pods-PhotoSearchApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PhotoSearchApp/Pods-PhotoSearchApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FBD28FBA1EAC4050576DA4AE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PhotoSearchApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E832A2DF299F907F00C99F05 /* Sources */ = {
@@ -486,7 +418,6 @@
 		};
 		E832A2F8299F908000C99F05 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5646C39AEC01A992A4D1A17C /* Pods-PhotoSearchApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -514,7 +445,6 @@
 		};
 		E832A2F9299F908000C99F05 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5EDF36606A087D9571E2FB3 /* Pods-PhotoSearchApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

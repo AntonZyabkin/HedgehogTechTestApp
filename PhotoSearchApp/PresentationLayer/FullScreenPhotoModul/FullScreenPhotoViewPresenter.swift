@@ -12,7 +12,7 @@ protocol FullScreenPhotoViewPresenterProtocol {
     func previousButtonDidTap()
     func nextButtonDidTap()
     func urlString() -> String
-    func siteButtonDidTap() -> WebPageViewController
+    func siteButtonDidTap(viewController: WebPageViewController)
 }
 
 final class FullScreenPhotoViewPresenter {
@@ -45,7 +45,7 @@ extension FullScreenPhotoViewPresenter: FullScreenPhotoViewPresenterProtocol {
     func urlString() -> String {
         imageArray[currentCellNumber].original
     }
-    func siteButtonDidTap() -> WebPageViewController {
-        moduleBuilder.buildWebPageViewController(presenter: self)
+    func siteButtonDidTap(viewController: WebPageViewController) {
+        moduleBuilder.buildWebPageViewController(presenter: self, viewController: viewController)
     }
 }
